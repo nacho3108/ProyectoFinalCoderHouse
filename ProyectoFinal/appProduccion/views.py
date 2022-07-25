@@ -3,15 +3,15 @@ from django.shortcuts import render
 
 # Create your views here.
 def inicio(request):
-    return HttpResponse('vista inicio')
+    return render(request,"appProduccion/inicio.html")
 
 def fabricas(request):
-    return HttpResponse('vista fabricas')
+    return render(request,"appProduccion/fabricas.html")
 
 def clientes(request):
-    return HttpResponse('vista clientes')
+    return render(request,"appProduccion/clientes.html")
 
 def hilados(request):
-    return HttpResponse('vista hilados')
+    return render(request,"appProduccion/hilados.html")
 
 
