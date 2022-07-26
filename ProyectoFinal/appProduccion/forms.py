@@ -13,3 +13,8 @@ class FormularioFabrica(forms.Form):
     direccion = forms.CharField()
     provincia = forms.CharField()
     codigoPostal = forms.IntegerField()
+
+class FormularioHilado(forms.Form):
+    codigoColor = forms.IntegerField()
+    partida = forms.IntegerField()
+    ordenPedido = forms.IntegerField()

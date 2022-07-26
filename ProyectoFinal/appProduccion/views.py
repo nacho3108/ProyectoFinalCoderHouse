@@ -1,8 +1,10 @@
+
 from django.http import HttpResponse
 from django.shortcuts import render
 
-from appProduccion.models import Cliente, Fabrica
-from appProduccion.forms import FormularioCliente, FormularioFabrica
+
+from appProduccion.models import Cliente, Fabrica, Hilado
+from appProduccion.forms import FormularioCliente, FormularioFabrica, FormularioHilado
 
 # Create your views here.
 def inicio(request):
@@ -62,3 +64,24 @@ def formularioFabrica(request):
 
     return render(request,"appProduccion/formularioFabrica.html",{"miFormulario":miFormulario})
 
+def formularioHilado(request):
+    if request.method == 'POST':
+
+        miFormulario = FormularioHilado(request.POST) #Aqui nos llega toda la info del html
+
+        print(miFormulario)
+
+        if miFormulario.is_valid: #si paso la validación de django
+                informacion = miFormulario.cleaned_data
+ 
+                hilado = Hilado (codigoColor=informacion['codigoColor'],partida=informacion['partida'],ordenPedido=informacion['ordenPedido'])
+
+                hilado.save()
+
+                return render(request, "appProduccion/inicio.html")
+    
+    else:
+         miFormulario = FormularioHilado() #Formulario Vacio para construir el html
+
+
+    return render(request,"appProduccion/formularioHilado.html",{"miFormulario":miFormulario})
