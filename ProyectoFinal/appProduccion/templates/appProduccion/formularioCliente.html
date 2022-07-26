@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agrega Cliente</title>
+</head>
+<body>
+    <!-- <form action="/formularioCliente" method="POST">{% csrf_token %}
+
+            <p>Razón social: <input type="text" name="razonSocial"></p>
+            <p>CUIT: <input type="text" name="cuit"></p>
+            <p>Dirección: <input type="text" name="direccion"></p>
+            <p>Provincia: <input type="text" name="provincia"></p>
+            <p>Código Postal: <input type="number" name="codigoPostal"></p>
+
+            <input type="submit" value="Enviar">
+    </form> -->
+    {% if miFormulario.error %}
+    
+    <p style="color: red;"> Están mal los datos, REVISAR</p>
+
+    {% endif %}
+
+    <form action="" method="POST">{% csrf_token %}
+        <table>
+            {{miFormulario.as_table}}
+        </table>
+
+        <input type="submit", value="Enviar">
+    </form>
+</body>
+</html>
