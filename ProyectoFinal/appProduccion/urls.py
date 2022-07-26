@@ -1,6 +1,6 @@
 from django.urls import path
 
-from appProduccion.views import fabricas, clientes, hilados, inicio, formularioCliente, formularioFabrica, formularioHilado
+from appProduccion.views import fabricas, clientes, hilados, inicio, formularioCliente, formularioFabrica, formularioHilado, busquedaCliente, buscar
 
 
 urlpatterns = [
@@ -11,4 +11,6 @@ urlpatterns = [
     path('formularioCliente/', formularioCliente, name="FormularioClientes"),
     path('formularioFabrica/', formularioFabrica, name="FormularioFabrica"),
     path('formularioHilado/', formularioHilado, name="FormularioHilado"),
+    path('busquedaCliente/', busquedaCliente, name="busquedaCliente"),
+    path('buscar/', buscar),
 ]

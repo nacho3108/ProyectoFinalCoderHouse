@@ -85,3 +85,11 @@ def formularioHilado(request):
 
 
     return render(request,"appProduccion/formularioHilado.html",{"miFormulario":miFormulario})
+
+def busquedaCliente(request):
+    return render(request, "appProduccion/busquedaCliente.html")
+
+def buscar(request):
+    respuesta = f"Busacando al cliente: {request.GET['cliente']}"
+
+    return HttpResponse(respuesta)
