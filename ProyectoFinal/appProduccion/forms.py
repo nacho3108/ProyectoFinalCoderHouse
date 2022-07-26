@@ -6,3 +6,10 @@ class FormularioCliente(forms.Form):
     direccion = forms.CharField()
     provincia = forms.CharField()
     codigoPostal = forms.IntegerField()
+
+class FormularioFabrica(forms.Form):
+    razonSocial = forms.CharField()
+    cuit = forms.CharField()
+    direccion = forms.CharField()
+    provincia = forms.CharField()
+    codigoPostal = forms.IntegerField()
