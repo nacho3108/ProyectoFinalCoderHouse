@@ -1,7 +1,11 @@
 # Proyecto Final CoderHouse
 
+# Profesor: Mauricio Cuello.
+# Tutor: Esteban Acevedo
+# Integrantes del grupo: Julian Carrizo Brenelli, Julian Ottonello y Juan Ignacio Goicoa
+
 # Introducción al proyecto
-El proyecto se basa en una fabrica de hilados ya que el estudiante Juan Ignacio Goicoa es encargado de planeamiento y control de la produccón.
+El proyecto se basa en una fabrica de hilados.
 Se tarata de hacer una plataforma web donde los distintos sectores de la empresa puedan hacer un seguimiento de cualquier pedido asi como también el clieente.
 La plataforma tiene mucho potencial a futuro ya que en futuras mejoras se pueden hacer apps para ventas, cobros, etc, pero nos centramos en esta primer etapa a la producción.
 #
