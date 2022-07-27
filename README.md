@@ -10,3 +10,10 @@ La app se llama appProduccion ya que es la app que se encarga de monitorear el e
 # USUARIOS a http://127.0.0.1:8000/admin/ DJANGO ADMINISTRATION
 super husario: nacho3108    pass: 3108
 user: nacho3108@gmail.com pass: coderhouse
+
+# FUNCIONALIDADES:
+Para ingresar una nueva fabica: http://127.0.0.1:8000/appProduccion/formularioFabrica/
+Para ingresar un nuevo cliente: http://127.0.0.1:8000/appProduccion/formularioCliente/
+Para ingresar un nuevo hilado: http://127.0.0.1:8000/appProduccion/formularioHilado/
+
+Para realizar una Busqueda de cliente: http://127.0.0.1:8000/appProduccion/busquedaCliente/
