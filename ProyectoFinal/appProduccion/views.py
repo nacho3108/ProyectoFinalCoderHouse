@@ -89,7 +89,24 @@ def formularioHilado(request):
 def busquedaCliente(request):
     return render(request, "appProduccion/busquedaCliente.html")
 
+#def buscar(request):
+#   respuesta = f"Busacando al cliente: {request.GET['cliente']}"
+
+ #   return HttpResponse(respuesta)
+
 def buscar(request):
-    respuesta = f"Busacando al cliente: {request.GET['cliente']}"
+ 
+
+    if request.GET["cliente"]:
+
+        cliente = request.GET["cliente"]
+
+        clientes = Cliente.objects.filter(razonSocial__icontains=cliente)
+
+        return render(request, "appProduccion/resultadoBusqueda.html", {"clientes": clientes, "cliente": cliente})
+
+    else:
+
+        respuesta = "No enviaste datos"
 
     return HttpResponse(respuesta)

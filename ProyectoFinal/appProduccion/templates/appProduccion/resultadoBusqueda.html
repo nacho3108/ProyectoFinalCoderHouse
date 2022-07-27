@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agrega Hilado</title>
+</head>
+<body>
+
+    <p>Estamos buscando los clientes: {{cliente}}</p>
+
+    {% if clientes %}
+
+        <ul>
+
+            {% for cliente in clientes %}
+                <li>
+                    {{cliente.razonSocial}}-{{cliente.direccion}}
+                </li>
+            {% endfor %}
+                
+        </ul>
+
+    {% else %}
+
+        <p>No hubo coincidencias!</p>
+        
+    {% endif %}
+        
+
+</body>
+</html>

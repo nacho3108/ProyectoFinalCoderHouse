@@ -7,9 +7,16 @@
     <title>Busqueda Cliente</title>
 </head>
 <body>
-    <form action="/appProduccion/buscar/" method="GET">
+    <!-- <form action="/appProduccion/buscar/" method="GET">
         <input type="text" name="cliente" id="cliente">
         <input type="submit" value="Buscar">
+    </form>-->
+    <form action="{% url 'Buscar' %}" method="GET">{% csrf_token %}
+
+        <p>Busqueda del cliente: <input type="text" name="cliente"></p>
+
+        <input type="submit" value="Buscar">
+
     </form>
 </body>
 </html>
