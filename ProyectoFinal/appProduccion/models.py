@@ -8,6 +8,9 @@ class Fabrica(models.Model):
     direccion = models.CharField(max_length=50)
     provincia = models.CharField(max_length=50)
     codigoPostal = models.IntegerField()
+
+    def __str__(self):
+        return f"Razón Social: {self.razonSocial} - CUIT: {self.cuit} - Direccion: {self.direccion} - Provincia: {self.provincia} - Código Postal: {self.codigoPostal}"
     
 class Cliente(models.Model):
 
@@ -17,9 +20,17 @@ class Cliente(models.Model):
     provincia = models.CharField(max_length=50)
     codigoPostal = models.IntegerField()
 
+    def __str__(self):
+        return f"Razón Social: {self.razonSocial} - CUIT: {self.cuit} - Direccion: {self.direccion} - Provincia: {self.provincia} - Código Postal: {self.codigoPostal}"
+
+
 class Hilado(models.Model):
 
     codigoColor = models.IntegerField()
     partida = models.IntegerField()
     ordenPedido = models.IntegerField()
+
+    def __str__(self):
+        return f"Código color: {self.codigoColor} - Partida: {self.partida} - Orden de Pedido nº: {self.ordenPedido}"
+
 

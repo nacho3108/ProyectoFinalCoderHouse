@@ -110,3 +110,7 @@ def buscar(request):
         respuesta = "No enviaste datos"
 
     return HttpResponse(respuesta)
+
+def __str__(self):
+    return f"Razón Social: {self.razonSocial} - CUIT: {self.cuit} - Direccion: {self.direccion} - Provincia: {self.provincia} - Código Postal: {self.codigoPostal}"
+
