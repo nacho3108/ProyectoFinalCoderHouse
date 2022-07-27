@@ -111,6 +111,23 @@ def buscar(request):
 
     return HttpResponse(respuesta)
 
-def __str__(self):
-    return f"Razón Social: {self.razonSocial} - CUIT: {self.cuit} - Direccion: {self.direccion} - Provincia: {self.provincia} - Código Postal: {self.codigoPostal}"
+def leerFabricas(request):
+    fabricas = Fabrica.objects.all() #traigo todas las fábricas
 
+    contexto = {"fabricas":fabricas}
+
+    return render(request, "appProduccion/leerFabricas.html",contexto)
+
+def leerClientes(request):
+    clientes = Cliente.objects.all() 
+
+    contexto = {"clientes":clientes}
+
+    return render(request, "appProduccion/leerClientes.html",contexto)
+
+def leerHilados(request):
+    hilados = Hilado.objects.all() 
+
+    contexto = {"hilados":hilados}
+
+    return render(request, "appProduccion/leerHilados.html",contexto)
