@@ -13,6 +13,9 @@
                     <form action="{% url 'EliminoFabrica' fabrica.id %}" method="POST">{% csrf_token %}
                         <button type="submit">Eliminar</button>
                     </form>
+                    <button>
+                        <a href="{% url 'EditarFabrica' fabrica.id %}" >Editar</a>
+                    </button>
             </div>
             
         {% endfor %}

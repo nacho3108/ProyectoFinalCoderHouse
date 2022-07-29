@@ -147,3 +147,39 @@ def eliminoFabrica(request, id):
         contexto = {"fabricas":fabricas}
 
         return render(request, "appProduccion/leerFabricas.html",contexto)
+
+def editarFabrica(request, id):
+    
+    fabrica = Fabrica.objects.get(id=id)
+
+    if request.method == 'POST':
+
+        miFormulario = FormularioFabrica(request.POST) #Aqui nos llega toda la info del html
+
+        print(miFormulario)
+
+        if miFormulario.is_valid: #si paso la validación de django
+                informacion = miFormulario.cleaned_data
+ 
+                fabrica.razonSocial = informacion["razonSocial"]
+                fabrica.cuit = informacion["cuit"]
+                fabrica.direccion = informacion["direccion"]
+                fabrica.provincia = informacion["provincia"]
+                fabrica.codigoPostal = informacion["codigoPostal"]
+
+                fabrica.save()
+
+                return render(request, "appProduccion/inicio.html")
+    
+    else:
+
+        miFormulario = FormularioFabrica(initial={
+            "razonSocial" : fabrica.razonSocial,
+            "cuit": fabrica.cuit,
+            "direccion": fabrica.direccion,
+            "provincia": fabrica.provincia,
+            "codigoPostal": fabrica.codigoPostal,
+        }) #como vamos a editar no puede ser vacio
+
+
+    return render(request,"appProduccion/editarFabrica.html",{"miFormulario":miFormulario, "id":fabrica.id}) #necesito no perder el id
