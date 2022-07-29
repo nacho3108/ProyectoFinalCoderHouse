@@ -7,8 +7,18 @@
     <title>Leer Fabricas</title>
 </head>
     <body>
-        {% for p in fabricas %}
-            <li> {{p}} </li>
+        {% for fabrica in fabricas %}
+            <li> {{fabrica}} </li>
+            <div>
+                    <form action="{% url 'EliminoFabrica' fabrica.id %}" method="POST">{% csrf_token %}
+                        <button type="submit">Eliminar</button>
+                    </form>
+            </div>
+            
         {% endfor %}
+
+        <a href="fabricas">Agregar otra Fabrica</a>
+
     </body>
 </html>
+

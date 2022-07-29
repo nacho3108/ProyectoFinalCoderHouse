@@ -131,3 +131,19 @@ def leerHilados(request):
     contexto = {"hilados":hilados}
 
     return render(request, "appProduccion/leerHilados.html",contexto)
+
+def eliminoFabrica(request, id):
+    
+    if request.method == 'POST':
+        
+        fabrica = Fabrica.objects.get(id=id) #id unico
+
+        fabrica.delete()
+
+        #Vuelvo al menu y ya se borro fabrica
+
+        fabricas = Fabrica.objects.all() #traigo todas las fabricas
+
+        contexto = {"fabricas":fabricas}
+
+        return render(request, "appProduccion/leerFabricas.html",contexto)
