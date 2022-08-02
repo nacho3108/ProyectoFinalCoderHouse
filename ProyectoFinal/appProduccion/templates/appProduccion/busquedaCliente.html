@@ -11,7 +11,7 @@
         <input type="text" name="cliente" id="cliente">
         <input type="submit" value="Buscar">
     </form>-->
-    <form action="{% url 'Buscar' %}" method="GET">{% csrf_token %}
+    <form action="{% url 'BuscarCliente' %}" method="GET">{% csrf_token %}
 
         <p>Busqueda del cliente: <input type="text" name="cliente"></p>
 

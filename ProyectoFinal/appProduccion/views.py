@@ -94,7 +94,7 @@ def busquedaCliente(request):
 
  #   return HttpResponse(respuesta)
 
-def buscar(request):
+def buscarCliente(request):
  
 
     if request.GET["cliente"]:
@@ -103,7 +103,7 @@ def buscar(request):
 
         clientes = Cliente.objects.filter(razonSocial__icontains=cliente)
 
-        return render(request, "appProduccion/resultadoBusqueda.html", {"clientes": clientes, "cliente": cliente})
+        return render(request, "appProduccion/buscarCliente.html", {"clientes": clientes, "cliente": cliente})
 
     else:
 
@@ -183,3 +183,24 @@ def editarFabrica(request, id):
 
 
     return render(request,"appProduccion/editarFabrica.html",{"miFormulario":miFormulario, "id":fabrica.id}) #necesito no perder el id
+
+def busquedaFabrica(request):
+    return render(request, "appProduccion/busquedaFabrica.html")
+
+
+def buscarFabrica(request):
+ 
+
+    if request.GET["fabrica"]:
+
+        fabrica = request.GET["fabrica"]
+
+        fabricas = Fabrica.objects.filter(razonSocial__icontains=fabrica)
+
+        return render(request, "appProduccion/buscarFabrica.html", {"fabricas": fabricas, "fabrica": fabrica})
+
+    else:
+
+        respuesta = "No enviaste datos"
+
+    return HttpResponse(respuesta)

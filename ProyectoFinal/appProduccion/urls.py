@@ -1,8 +1,7 @@
 from django.urls import path
-
 from appProduccion.views import (
-    fabricas, clientes, hilados, inicio, formularioCliente, formularioFabrica, 
-    formularioHilado, busquedaCliente, buscar, leerFabricas, leerClientes, leerHilados, eliminoFabrica, editarFabrica
+    fabricas, clientes, hilados, inicio, formularioCliente, formularioFabrica, busquedaFabrica, buscarFabrica,
+    formularioHilado, busquedaCliente, buscarCliente, leerFabricas, leerClientes, leerHilados, eliminoFabrica, editarFabrica
     )
 
 
@@ -14,11 +13,14 @@ urlpatterns = [
     path('formularioCliente/', formularioCliente, name="FormularioClientes"),
     path('formularioFabrica/', formularioFabrica, name="FormularioFabrica"),
     path('formularioHilado/', formularioHilado, name="FormularioHilado"),
-    path('busquedaCliente/', busquedaCliente, name="busquedaCliente"),
-    path('buscar/', buscar, name="Buscar"),
+    path('busquedaCliente/', busquedaCliente, name="BusquedaCliente"),
+    path('buscarCliente/', buscarCliente, name="BuscarCliente"),
     path('leerFabricas/', leerFabricas, name="LeerFabricas"),
     path('leerClientes/', leerClientes, name="LeerClientes"),
     path('leerHilados/', leerHilados, name="LeerHilados"),
     path('eliminoFabrica/<int:id>', eliminoFabrica, name="EliminoFabrica"),
     path('editarFabrica/<int:id>', editarFabrica, name="EditarFabrica"),
+    path('busquedaFabrica/', busquedaFabrica, name="BusquedaFabrica"),
+    path('buscarFabrica/', buscarFabrica, name="BuscarFabrica")
+
 ]
