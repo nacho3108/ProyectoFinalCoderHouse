@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Busqueda fabrica</title>
+    <title>Busqueda hilados</title>
 </head>
 <body>
 
-    <p>Estamos buscando las fabricas: {{fabrica}}</p>
+    <p>Estamos buscando hilados con codigo de color: {{hilado}}</p>
 
-    {% if fabricas %}
+    {% if hilados %}
 
         <ul>
 
-            {% for fabrica in fabricas %}
+            {% for hilado in hilados %}
                 <li>
-                    {{fabrica.razonSocial}}-{{fabrica.direccion}}
+                    {{hilado.codigoColor}}-{{hilado.partida}}-{{hilado.ordenPedido}}
                 </li>
             {% endfor %}
                 

@@ -204,3 +204,24 @@ def buscarFabrica(request):
         respuesta = "No enviaste datos"
 
     return HttpResponse(respuesta)
+
+def busquedaHilado(request):
+    return render(request, "appProduccion/busquedaHilado.html")
+
+
+def buscarHilado(request):
+ 
+
+    if request.GET["hilado"]:
+
+        hilado = request.GET["hilado"]
+
+        hilados = Hilado.objects.filter(codigoColor=hilado)
+
+        return render(request, "appProduccion/buscarHilado.html", {"hilados": hilados, "hilado": hilado})
+
+    else:
+
+        respuesta = "No enviaste datos"
+
+    return HttpResponse(respuesta)
