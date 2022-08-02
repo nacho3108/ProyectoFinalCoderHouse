@@ -22,7 +22,11 @@ Para ingresar un nuevo cliente: http://127.0.0.1:8000/appProduccion/formularioCl
 
 Para ingresar un nuevo hilado: http://127.0.0.1:8000/appProduccion/formularioHilado/
 
+Para realizar una Busqueda de fabrica: http://127.0.0.1:8000/appProduccion/busquedaFabrica/
+
 Para realizar una Busqueda de cliente: http://127.0.0.1:8000/appProduccion/busquedaCliente/
+
+Para realizar una Busqueda de un hilado segun código de color: http://127.0.0.1:8000/appProduccion/busquedaHilado/
 
 Para leer Fabricas, eliminar y modificar: http://127.0.0.1:8000/appProduccion/leerFabricas/
 
