@@ -5,6 +5,7 @@ from django.shortcuts import render
 
 from appProduccion.models import Cliente, Fabrica, Hilado
 from appProduccion.forms import FormularioCliente, FormularioFabrica, FormularioHilado
+from django.views.generic import ListView, DeleteView, CreateView, UpdateView, DetailView
 
 # Create your views here.
 def inicio(request):
@@ -225,3 +226,23 @@ def buscarHilado(request):
         respuesta = "No enviaste datos"
 
     return HttpResponse(respuesta)
+
+class ClienteList(ListView):
+    model = Cliente
+    template_name = 'cliente_list.html'
+
+class ClienteDetail(DetailView):
+    model = Cliente
+    template_name = 'cliente_detail.html'
+
+class ClienteCreate(CreateView):
+    model = Cliente
+    template_name = 'cliente_create.html'
+
+class ClienteUpdate(UpdateView):
+    model = Cliente
+    template_name = 'cliente_update.html'
+
+class ClienteDelete(DeleteView):
+    model = Cliente
+    template_name = 'cliente_delete.html'

@@ -28,8 +28,8 @@ Para realizar una Busqueda de cliente: http://127.0.0.1:8000/appProduccion/busqu
 
 Para realizar una Busqueda de un hilado segun código de color: http://127.0.0.1:8000/appProduccion/busquedaHilado/
 
-Para leer Fabricas, eliminar y modificar: http://127.0.0.1:8000/appProduccion/leerFabricas/
+Para leer Fabricas, eliminar y modificar (CRUD echo con funciones): http://127.0.0.1:8000/appProduccion/leerFabricas/
 
-Para leer Clientes: http://127.0.0.1:8000/appProduccion/leerClientes/
+Para leer, eliminar y modificar Clientes (CRUD con Clases basadas en vistas): http://127.0.0.1:8000/appProduccion/leerClientes/
 
 Para leer Hilados: http://127.0.0.1:8000/appProduccion/leerHilados/
