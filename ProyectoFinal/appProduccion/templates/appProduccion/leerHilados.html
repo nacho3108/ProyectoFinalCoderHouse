@@ -1,14 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leer Hilados</title>
-</head>
-    <body>
-        {% for p in hilados %}
-            <li> {{p}} </li>
-        {% endfor %}
-    </body>
-</html>
+{% extends "appProduccion/padre.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+
+
+        
+ 
+    {% for p in hilados %}
+        <li> {{p}} </li>
+    {% endfor %}
+
+
+
+{% endblock %}
