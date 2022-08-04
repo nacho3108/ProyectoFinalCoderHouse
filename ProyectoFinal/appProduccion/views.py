@@ -229,11 +229,11 @@ def buscarHilado(request):
 
 class ClienteList(ListView):
     model = Cliente
-    template_name = 'cliente_list.html'
+    template_name = 'appProduccion/cliente_list.html'
 
 class ClienteDetail(DetailView):
     model = Cliente
-    template_name = 'cliente_detail.html'
+    template_name = 'appProduccion/cliente_detail.html'
 
 class ClienteCreate(CreateView):
     model = Cliente

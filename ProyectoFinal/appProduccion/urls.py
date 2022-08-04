@@ -27,7 +27,7 @@ urlpatterns = [
     path('busquedaHilado/', busquedaHilado, name="BusquedaHilado"),
     path('buscarHilado/', buscarHilado, name="BuscarHilado"),
     path('listaClientes/', ClienteList.as_view(), name="ListaClientes"),
-    path('detalleCliente/<int:pk>', ClienteDetail.as_view(), name="DetalleCliente"),
+    path('detalleCliente/<int:pk>', ClienteDetail.as_view(), name="DetalleCliente")
     
 
 ]
