@@ -251,3 +251,4 @@ class ClienteUpdate(UpdateView):
 class ClienteDelete(DeleteView):
     model = Cliente
     template_name = 'appProduccion/cliente_delete.html'
+    success_url = '/appProduccion/'#template de exito
