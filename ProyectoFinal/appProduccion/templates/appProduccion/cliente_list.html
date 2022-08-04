@@ -9,11 +9,13 @@
     <body>
         <h1>Lista de Clientes</h1>
 
-        {% for cliente in object_list %}
+        {% for cliente in clientes %}
             <li> 
                 <a href="{% url 'DetalleCliente' cliente.id %}">{{cliente}}</a>
             </li>
         {% endfor %}
+
+        <a href = "{% url 'CreaCliente' %}">Crear Cliente</a>
 
 
     </body>

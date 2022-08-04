@@ -230,19 +230,23 @@ def buscarHilado(request):
 class ClienteList(ListView):
     model = Cliente
     template_name = 'appProduccion/cliente_list.html'
+    context_object_name = 'clientes' #recibe como contexto la lista de clientes 
 
 class ClienteDetail(DetailView):
     model = Cliente
     template_name = 'appProduccion/cliente_detail.html'
+    context_object_name = 'cliente' #recibe como contexto el cliente para hacer el detalle
+
 
 class ClienteCreate(CreateView):
     model = Cliente
-    template_name = 'cliente_create.html'
-
+    template_name = 'appProduccion/cliente_create.html'
+    fields = ["razonSocial", "cuit", "direccion", "provincia","codigoPostal"]#campos que queremos que se renderizen para generar el registro
+    success_url = '/appProduccion/'#template de exito
 class ClienteUpdate(UpdateView):
     model = Cliente
-    template_name = 'cliente_update.html'
+    template_name = 'appProduccion/cliente_update.html'
 
 class ClienteDelete(DeleteView):
     model = Cliente
-    template_name = 'cliente_delete.html'
+    template_name = 'appProduccion/cliente_delete.html'
