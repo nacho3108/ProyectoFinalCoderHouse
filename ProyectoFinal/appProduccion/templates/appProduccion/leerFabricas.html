@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leer Fabricas</title>
-</head>
-    <body>
+{% extends "appProduccion/padre.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+
+
+        
         {% for fabrica in fabricas %}
             <li> {{fabrica}} </li>
             <div>
@@ -20,8 +17,8 @@
             
         {% endfor %}
 
-        <a href="fabricas">Agregar otra Fabrica</a>
+        <a href = "{% url 'FormularioFabrica' %}">Crear Fabrica</a>
+    
 
-    </body>
-</html>
 
+{% endblock %}
