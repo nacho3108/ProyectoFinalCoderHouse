@@ -13,6 +13,9 @@
             <li> 
                 <a href="{% url 'DetalleCliente' cliente.id %}">{{cliente}}</a>
             </li>
+            <button>
+                <a href="{% url 'ActualizaCliente' cliente.id %}" >Editar</a>
+            </button>
         {% endfor %}
 
         <a href = "{% url 'CreaCliente' %}">Crear Cliente</a>

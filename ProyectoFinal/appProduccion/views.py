@@ -246,7 +246,8 @@ class ClienteCreate(CreateView):
 class ClienteUpdate(UpdateView):
     model = Cliente
     template_name = 'appProduccion/cliente_update.html'
-
+    fields = ('__all__') # es otra forma de agregar todos los campos que hay
+    success_url = '/appProduccion/'#template de exito
 class ClienteDelete(DeleteView):
     model = Cliente
     template_name = 'appProduccion/cliente_delete.html'
