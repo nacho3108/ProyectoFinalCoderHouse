@@ -11,8 +11,8 @@ La plataforma tiene mucho potencial a futuro ya que en futuras mejoras se pueden
 #
 La app se llama appProduccion ya que es la app que se encarga de monitorear el estado del pedio del cliente desde que se crea una partida hasta el moento que se encuntra en condiciones de ser entregado.
 
-# USUARIOS a http://127.0.0.1:8000/admin/ DJANGO ADMINISTRATION
-super husario: nacho3108    pass: 3108
+USUARIOS a http://127.0.0.1:8000/admin/ DJANGO ADMINISTRATION
+super usario: nacho3108    pass: 3108
 user: nacho3108@gmail.com pass: coderhouse
 
 # FUNCIONALIDADES:
