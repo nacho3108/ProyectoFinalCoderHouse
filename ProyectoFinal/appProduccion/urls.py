@@ -3,7 +3,7 @@ from django.urls import path
 from appProduccion.views import (
     fabricas, clientes, hilados, inicio, formularioCliente, formularioFabrica, busquedaFabrica, buscarFabrica, busquedaHilado, buscarHilado,
     formularioHilado, busquedaCliente, buscarCliente, leerFabricas, leerClientes, leerHilados, eliminoFabrica, editarFabrica, 
-    ClienteList, ClienteDetail, ClienteCreate, ClienteUpdate, ClienteDelete
+    ClienteList, ClienteDetail, ClienteCreate, ClienteUpdate, ClienteDelete, HiladoCreate, HiladoDelete, HiladoDetail, HiladoList, HiladoUpdate
     )
 
 
@@ -31,5 +31,14 @@ urlpatterns = [
     path('creaCliente/', ClienteCreate.as_view(), name="CreaCliente"),
     path('actualizaCliente/<int:pk>', ClienteUpdate.as_view(), name="ActualizaCliente"),
     path('eliminaCliente/<int:pk>', ClienteDelete.as_view(), name="EliminaCliente"),
+    
+    
+    path('listaHilados/', HiladoList.as_view(), name="ListaHilados"),
+    path('detalleHilado/<int:pk>', HiladoDetail.as_view(), name="DetalleHilado"),
+    path('creaHilado/', HiladoCreate.as_view(), name="CreaHilado"),
+    path('actualizaHilado/<int:pk>', HiladoUpdate.as_view(), name="ActualizaHilado"),
+    path('eliminaHilado/<int:pk>', HiladoDelete.as_view(), name="EliminaHilado"),
+
+
 
 ]

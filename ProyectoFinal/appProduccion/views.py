@@ -257,3 +257,33 @@ class ClienteDelete(DeleteView):
     model = Cliente
     template_name = 'appProduccion/cliente_delete.html'
     success_url = '/appProduccion/'#template de exito
+
+
+#-------------------------------------CRUD---Hilado
+
+class HiladoList(ListView):
+    model = Hilado
+    template_name = 'appProduccion/hilado_list.html'
+    context_object_name = 'hilados' #recibe como contexto la lista de hilados 
+
+class HiladoDetail(DetailView):
+    model = Hilado
+    template_name = 'appProduccion/hilado_detail.html'
+    context_object_name = 'hilado' #recibe como contexto el hilado para hacer el detalle
+
+
+class HiladoCreate(CreateView):
+    model = Hilado
+    template_name = 'appProduccion/hilado_create.html'
+    fields = ('__all__') #campos que queremos que se renderizen para generar el registro
+    success_url = '/appProduccion/'#template de exito
+
+class HiladoUpdate(UpdateView):
+    model = Hilado
+    template_name = 'appProduccion/hilado_update.html'
+    fields = ('__all__') # es otra forma de agregar todos los campos que hay
+    success_url = '/appProduccion/'#template de exito
+class HiladoDelete(DeleteView):
+    model = Hilado
+    template_name = 'appProduccion/hilado_delete.html'
+    success_url = '/appProduccion/'#template de exito

@@ -1,0 +1,25 @@
+{% extends "appProduccion/padre.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+
+
+    <h1>Lista de Hilados</h1>
+
+        {% for hilado in hilados %}
+            <li> 
+                <a href="{% url 'DetalleHilado' hilado.id %}">{{hilado}}</a>
+            </li>
+            <button>
+                <a href="{% url 'EliminaHilado' hilado.id %}" >Eliminar</a>
+            </button>
+            <button>
+                <a href="{% url 'ActualizaHilado' hilado.id %}" >Editar</a>
+            </button>
+        {% endfor %}
+
+        <a href = "{% url 'CreaHilado' %}">Crear hilado</a>
+
+
+
+
+{% endblock %}
