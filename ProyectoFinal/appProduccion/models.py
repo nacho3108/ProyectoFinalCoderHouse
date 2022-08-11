@@ -27,18 +27,18 @@ class Cliente(models.Model):
 class Hilado(models.Model):
 
     partida = models.IntegerField()
+    articulo =  models.CharField(max_length=30)    #el artículo puede ser Gong, Milan, etc
+    codigoColor = models.IntegerField() #el código de color es el color con que se tiñe y puede ser el mismo para distintos artículos
     kg = models.IntegerField() 
     cantidadConos = models.IntegerField() 
     fechaTenido = models.DateField()
-    estado =  models.CharField(max_length=10) #puede ser: (TINTORERIA/HUMEDO/SECO/DEVANADO/DEPOSITO)
+    estado =  models.CharField(max_length=20) #puede ser: (TINTORERIA/HUMEDO/SECO/DEVANADO/DEPOSITO)
     clienteTenido1 = models.CharField(max_length=50) #En algun momento tengo que vincular esto con clientes cargados
     clienteTenido2 = models.CharField(max_length=50)
     clienteTenido3 = models.CharField(max_length=50)
     clienteTenido4 = models.CharField(max_length=50)
     clienteTenido5 = models.CharField(max_length=50)
-    ordenPedido = models.IntegerField()
-    articulo = models.IntegerField()    #el artículo puede ser Gong, Milan, etc
-    codigoColor = models.IntegerField() #el código de color es el color con que se tiñe y puede ser el mismo para distintos artículos
+    
     #Hasta acá se carga cuando se crea una partida nueva (se tiñó)
     #A continuación estos campos deben ser inicializados sin valor para darle valor a la hora de la entrega
     #Estimo que una partida de Hilado se le puede entregar como máximo a 10 clientes distintos
@@ -86,6 +86,6 @@ class Hilado(models.Model):
     
     
     def __str__(self):
-        return f"Partida: {self.partida} - KG: {self.kg} - Conos: {self.cantidadConos} - Fecha Teñido: {self.fechaTenido} - Estado: {self.estado}- Cliente 1: {self.clienteTenido1} - Cliente 2: {self.clienteTenido2} - Cliente 3: {self.clienteTenido3} - Cliente 4: {self.clienteTenido4} - Cliente 5: {self.clienteTenido5} - Orden de Pedido nº: {self.ordenPedido} - Artículo: {self.articulo} - Código Color: {self.codigoColor} - Cliente Entrega 1: {self.clienteEntrega1} - Kg: {self.kgEntrega1} - Conos: {self.conosEntrega1} - Fecha: {self.fechaEntrega1} - Cliente Entrega 2: {self.clienteEntrega2} - Kg: {self.kgEntrega2} - Conos: {self.conosEntrega2} - Fecha: {self.fechaEntrega2} - Cliente Entrega 3: {self.clienteEntrega3} - Kg: {self.kgEntrega3} - Conos: {self.conosEntrega3} - Fecha: {self.fechaEntrega3} - Cliente Entrega 4: {self.clienteEntrega4} - Kg: {self.kgEntrega4} - Conos: {self.conosEntrega4} - Fecha: {self.fechaEntrega4} - Cliente Entrega 5: {self.clienteEntrega5} - Kg: {self.kgEntrega5} - Conos: {self.conosEntrega5} - Fecha: {self.fechaEntrega5} - Cliente Entrega 6: {self.clienteEntrega6} - Kg: {self.kgEntrega6} - Conos: {self.conosEntrega6} - Fecha: {self.fechaEntrega6} - Cliente Entrega 7: {self.clienteEntrega7} - Kg: {self.kgEntrega7} - Conos: {self.conosEntrega7} - Fecha: {self.fechaEntrega7} - Cliente Entrega 8: {self.clienteEntrega8} - Kg: {self.kgEntrega8} - Conos: {self.conosEntrega8} - Fecha: {self.fechaEntrega8} - Cliente Entrega 9: {self.clienteEntrega9} - Kg: {self.kgEntrega9} - Conos: {self.conosEntrega9} - Fecha: {self.fechaEntrega9} - Cliente Entrega 10: {self.clienteEntrega10} - Kg: {self.kgEntrega10} - Conos: {self.conosEntrega10} - Fecha: {self.fechaEntrega10}  "
+        return f"Partida: {self.partida} - Artículo: {self.articulo} - Código Color: {self.codigoColor} - KG: {self.kg} - Conos: {self.cantidadConos} - Fecha Teñido: {self.fechaTenido} - Estado: {self.estado}- Cliente 1: {self.clienteTenido1} - Cliente 2: {self.clienteTenido2} - Cliente 3: {self.clienteTenido3} - Cliente 4: {self.clienteTenido4} - Cliente 5: {self.clienteTenido5} - Cliente Entrega 1: {self.clienteEntrega1} - Kg: {self.kgEntrega1} - Conos: {self.conosEntrega1} - Fecha: {self.fechaEntrega1} - Cliente Entrega 2: {self.clienteEntrega2} - Kg: {self.kgEntrega2} - Conos: {self.conosEntrega2} - Fecha: {self.fechaEntrega2} - Cliente Entrega 3: {self.clienteEntrega3} - Kg: {self.kgEntrega3} - Conos: {self.conosEntrega3} - Fecha: {self.fechaEntrega3} - Cliente Entrega 4: {self.clienteEntrega4} - Kg: {self.kgEntrega4} - Conos: {self.conosEntrega4} - Fecha: {self.fechaEntrega4} - Cliente Entrega 5: {self.clienteEntrega5} - Kg: {self.kgEntrega5} - Conos: {self.conosEntrega5} - Fecha: {self.fechaEntrega5} - Cliente Entrega 6: {self.clienteEntrega6} - Kg: {self.kgEntrega6} - Conos: {self.conosEntrega6} - Fecha: {self.fechaEntrega6} - Cliente Entrega 7: {self.clienteEntrega7} - Kg: {self.kgEntrega7} - Conos: {self.conosEntrega7} - Fecha: {self.fechaEntrega7} - Cliente Entrega 8: {self.clienteEntrega8} - Kg: {self.kgEntrega8} - Conos: {self.conosEntrega8} - Fecha: {self.fechaEntrega8} - Cliente Entrega 9: {self.clienteEntrega9} - Kg: {self.kgEntrega9} - Conos: {self.conosEntrega9} - Fecha: {self.fechaEntrega9} - Cliente Entrega 10: {self.clienteEntrega10} - Kg: {self.kgEntrega10} - Conos: {self.conosEntrega10} - Fecha: {self.fechaEntrega10}  "
 
 
