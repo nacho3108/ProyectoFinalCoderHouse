@@ -75,7 +75,12 @@ def formularioHilado(request):
         if miFormulario.is_valid: #si paso la validación de django
                 informacion = miFormulario.cleaned_data
  
-                hilado = Hilado (codigoColor=informacion['codigoColor'],partida=informacion['partida'],ordenPedido=informacion['ordenPedido'])
+                hilado = Hilado (partida=informacion['Partida'],articulo=informacion['Articulo'],codigoColor=informacion['Codigo_Color'],
+                kg=informacion['Kg'],cantidadConos=informacion['Conos_Totales'],fechaTenido=informacion['Fecha_de_teñido'],estado=informacion['Estado'],
+                clienteTenido1=informacion['Cliente_1'],clienteTenido2=informacion['Cliente_2'],clienteTenido3=informacion['Cliente_3'],clienteTenido4=informacion['Cliente_4'],
+                clienteTenido5=informacion['Cliente_5'])
+
+
 
                 hilado.save()
 
