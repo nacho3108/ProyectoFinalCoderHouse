@@ -276,14 +276,14 @@ class HiladoCreate(CreateView):
     model = Hilado
     template_name = 'appProduccion/hilado_create.html'
     fields = ('__all__') #campos que queremos que se renderizen para generar el registro
-    success_url = '/appProduccion/'#template de exito
+    success_url = '/appProduccion/listaHilados/'#template de exito
 
 class HiladoUpdate(UpdateView):
     model = Hilado
     template_name = 'appProduccion/hilado_update.html'
     fields = ('__all__') # es otra forma de agregar todos los campos que hay
-    success_url = '/appProduccion/'#template de exito
+    success_url = '/appProduccion/listaHilados/'#template de exito
 class HiladoDelete(DeleteView):
     model = Hilado
     template_name = 'appProduccion/hilado_delete.html'
-    success_url = '/appProduccion/'#template de exito
+    success_url = '/appProduccion/listaHilados/'#template de exito

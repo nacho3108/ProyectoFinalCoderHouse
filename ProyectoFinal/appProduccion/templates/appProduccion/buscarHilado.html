@@ -13,10 +13,11 @@
     {% if hilados %}
 
         <ul>
-
+            <p>Las siguientes partidas tienen el código de color buscado:</p>
             {% for hilado in hilados %}
+                
                 <li>
-                    {{hilado.codigoColor}}-{{hilado.partida}}-{{hilado.ordenPedido}}
+                    Partida: {{hilado.partida}}
                 </li>
             {% endfor %}
                 

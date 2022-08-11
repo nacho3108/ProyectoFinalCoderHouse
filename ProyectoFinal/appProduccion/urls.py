@@ -1,8 +1,8 @@
 from django.urls import path
 
 from appProduccion.views import (
-    fabricas, clientes, hilados, inicio, formularioCliente, formularioFabrica, busquedaFabrica, buscarFabrica, busquedaHilado, buscarHilado,
-    formularioHilado, busquedaCliente, buscarCliente, leerFabricas, leerClientes, leerHilados, eliminoFabrica, editarFabrica, 
+    fabricas, clientes, inicio, formularioCliente, formularioFabrica, busquedaFabrica, buscarFabrica, busquedaHilado, buscarHilado,
+    formularioHilado, busquedaCliente, buscarCliente, leerFabricas, leerClientes, eliminoFabrica, editarFabrica, 
     ClienteList, ClienteDetail, ClienteCreate, ClienteUpdate, ClienteDelete, HiladoCreate, HiladoDelete, HiladoDetail, HiladoList, HiladoUpdate
     )
 
@@ -11,7 +11,7 @@ urlpatterns = [
     path('', inicio, name="Inicio"),
     path('fabricas/', fabricas, name="Fabrica"),
     path('clientes/', clientes, name="Clientes"),
-    path('hilados/', hilados, name="Hilados"),
+   
     path('formularioCliente/', formularioCliente, name="FormularioClientes"),
     path('formularioFabrica/', formularioFabrica, name="FormularioFabrica"),
     path('formularioHilado/', formularioHilado, name="FormularioHilado"),
@@ -19,12 +19,12 @@ urlpatterns = [
     path('buscarCliente/', buscarCliente, name="BuscarCliente"),
     path('leerFabricas/', leerFabricas, name="LeerFabricas"),
     path('leerClientes/', leerClientes, name="LeerClientes"),
-    path('leerHilados/', leerHilados, name="LeerHilados"),
+    
     path('eliminoFabrica/<int:id>', eliminoFabrica, name="EliminoFabrica"),
     path('editarFabrica/<int:id>', editarFabrica, name="EditarFabrica"),
     path('busquedaFabrica/', busquedaFabrica, name="BusquedaFabrica"),
     path('buscarFabrica/', buscarFabrica, name="BuscarFabrica"),
-    path('busquedaHilado/', busquedaHilado, name="BusquedaHilado"),
+    
     path('buscarHilado/', buscarHilado, name="BuscarHilado"),
     path('listaClientes/', ClienteList.as_view(), name="ListaClientes"),
     path('detalleCliente/<int:pk>', ClienteDetail.as_view(), name="DetalleCliente"),
@@ -38,6 +38,9 @@ urlpatterns = [
     path('creaHilado/', HiladoCreate.as_view(), name="CreaHilado"),
     path('actualizaHilado/<int:pk>', HiladoUpdate.as_view(), name="ActualizaHilado"),
     path('eliminaHilado/<int:pk>', HiladoDelete.as_view(), name="EliminaHilado"),
+
+    path('buscarHilado/', buscarHilado, name="BuscarHilado"),
+    path('busquedaHilado/', busquedaHilado, name="BusquedaHilado"),
 
 
 
