@@ -28,7 +28,15 @@
                 <a class="navbar-brand" href="{% url 'ListaClientes' %}">Cliente</a>
                 
 
-                <a class="btn btn-primary" href="{% url 'Login' %}">Iniciar Sesion</a>
+                
+                {% if user.is_authenticated %}
+                    <p>Bienvenido {{user.name}}</p>
+                    <a class="btn btn-primary" href="{% url 'Logout' %}">Cerrar Sesion</a>
+                {% else %}
+                    <a class="btn btn-primary" href="{% url 'Login' %}">Iniciar Sesion</a>
+                {% endif %}
+                    
+                
             </div>
         </nav>
         <!-- Masthead-->

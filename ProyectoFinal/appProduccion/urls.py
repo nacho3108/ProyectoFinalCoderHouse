@@ -8,6 +8,8 @@ from appProduccion.views import (
     login_request, register
     )
 
+from django.contrib.auth.views import LogoutView
+
 
 
 urlpatterns = [
@@ -47,7 +49,7 @@ urlpatterns = [
 
     path('login/', login_request, name="Login"),
     path('registrar/', register, name="Registrar"),
-
+    path('logout/', LogoutView.as_view(template_name = "appProduccion/logout.html"), name="Logout"),
 
 
 ]

@@ -342,3 +342,6 @@ def register(request):
         form = UserCreationForm()
         
     return render(request, "appProduccion/registro.html", {'miFormulario':form})
+
+
+#--------------------LOGOUT----------------------
