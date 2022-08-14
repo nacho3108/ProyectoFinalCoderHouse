@@ -30,7 +30,7 @@
 
                 
                 {% if user.is_authenticated %}
-                    <p>Bienvenido {{user.name}}</p>
+                    <p>Usuario: {{user.username}}</p>
                     <a class="btn btn-primary" href="{% url 'Logout' %}">Cerrar Sesion</a>
                 {% else %}
                     <a class="btn btn-primary" href="{% url 'Login' %}">Iniciar Sesion</a>

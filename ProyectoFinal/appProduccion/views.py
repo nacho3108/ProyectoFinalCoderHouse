@@ -9,10 +9,14 @@ from django.views.generic import ListView, DeleteView, CreateView, UpdateView, D
 
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.mixins import LoginRequiredMixin #para vistas basadas en clase (permisos de usuario)
+from django.contrib.auth.decorators import login_required #decorador para visatas basadas en funciones (permisos de usuarios)
+from django.contrib.admin.views.decorators import staff_member_required #decorador para no permitir acceso a usuarios menor nivel
 
 # Create your views here.
 def inicio(request):
     return render(request,"appProduccion/inicio.html")
+
 
 def fabricas(request):
     return render(request,"appProduccion/fabricas.html")
@@ -120,6 +124,8 @@ def buscarCliente(request):
 
     return HttpResponse(respuesta)
 
+
+@login_required
 def leerFabricas(request):
     fabricas = Fabrica.objects.all() #traigo todas las fábricas
 
@@ -133,6 +139,7 @@ def leerClientes(request):
     contexto = {"clientes":clientes}
 
     return render(request, "appProduccion/leerClientes.html",contexto)
+
 
 def leerHilados(request):
     hilados = Hilado.objects.all() 
@@ -264,7 +271,8 @@ class ClienteDelete(DeleteView):
 
 #-------------------------------------CRUD---Hilado
 
-class HiladoList(ListView):
+
+class HiladoList(LoginRequiredMixin, ListView):
     model = Hilado
     template_name = 'appProduccion/hilado_list.html'
     context_object_name = 'hilados' #recibe como contexto la lista de hilados 
@@ -309,8 +317,8 @@ def login_request(request):
 
             if user:
                 login(request,user)
-
-                return render(request, 'appProduccion/inicio.html', {"mensaje": f"Bienvenido {usuario}"})
+                
+                return render(request, 'appProduccion/inicio.html', {"mensaje": f'Bienvenido {usuario}'})
             else:
                 return render(request, 'appProduccion/inicio.html', {"mensaje": "Error, datos incorrectos"})
     
@@ -330,7 +338,7 @@ def register(request):
 
         form = UserCreationForm(request.POST)
 
-        if form.is_Valid():
+        if form.is_valid():
                 
             username = form.cleaned_data["username"]
 
@@ -344,4 +352,3 @@ def register(request):
     return render(request, "appProduccion/registro.html", {'miFormulario':form})
 
 
-#--------------------LOGOUT----------------------
