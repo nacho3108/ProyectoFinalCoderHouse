@@ -7,6 +7,9 @@ from appProduccion.models import Cliente, Fabrica, Hilado
 from appProduccion.forms import FormularioCliente, FormularioFabrica, FormularioHilado
 from django.views.generic import ListView, DeleteView, CreateView, UpdateView, DetailView
 
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import login, logout, authenticate
+
 # Create your views here.
 def inicio(request):
     return render(request,"appProduccion/inicio.html")
@@ -287,3 +290,35 @@ class HiladoDelete(DeleteView):
     model = Hilado
     template_name = 'appProduccion/hilado_delete.html'
     success_url = '/appProduccion/listaHilados/'#template de exito
+
+#---------------LOGIN-----------------------
+
+def login_request(request):
+
+    if request.method == "POST":
+
+        miFormulario = AuthenticationForm(request, data = request.POST)
+
+        if miFormulario.is_valid():
+            data = miFormulario.cleaned_data
+
+            usuario = data['username']
+            psw = data['password']
+
+            user = authenticate(username = usuario, password = psw) 
+
+            if user:
+                login(request,user)
+
+                return render(request, 'appProduccion/inicio.html', {"mensaje": f"Bienvenido {usuario}"})
+            else:
+                return render(request, 'appProduccion/inicio.html', {"mensaje": "Error, datos incorrectos"})
+    
+        
+
+        return render(request, 'appProduccion/inicio.html', {"mensaje": "Error, Formulario invalido"})
+    
+    else:
+        miFormulario = AuthenticationForm()
+
+    return render(request, "appProduccion/login.html", {'miFormulario':miFormulario})

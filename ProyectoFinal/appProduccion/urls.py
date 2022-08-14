@@ -1,10 +1,13 @@
 from django.urls import path
 
+
 from appProduccion.views import (
     fabricas, clientes, inicio, formularioCliente, formularioFabrica, busquedaFabrica, buscarFabrica, busquedaHilado, buscarHilado,
     formularioHilado, busquedaCliente, buscarCliente, leerFabricas, leerClientes, eliminoFabrica, editarFabrica, 
-    ClienteList, ClienteDetail, ClienteCreate, ClienteUpdate, ClienteDelete, HiladoCreate, HiladoDelete, HiladoDetail, HiladoList, HiladoUpdate
+    ClienteList, ClienteDetail, ClienteCreate, ClienteUpdate, ClienteDelete, HiladoCreate, HiladoDelete, HiladoDetail, HiladoList, HiladoUpdate,
+    login_request
     )
+
 
 
 urlpatterns = [
@@ -41,6 +44,8 @@ urlpatterns = [
 
     path('buscarHilado/', buscarHilado, name="BuscarHilado"),
     path('busquedaHilado/', busquedaHilado, name="BusquedaHilado"),
+
+    path('login/', login_request, name="Login"),
 
 
 
