@@ -1,0 +1,15 @@
+{% extends "appProduccion/padre.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+
+    <form action="{% url 'Registrar' %}" method="POST">{% csrf_token %}
+        
+
+        {{miFormulario.as_p}}
+
+        <button type="submit">REGISTRAR</button>
+    
+    </form>
+
+
+{% endblock %}
