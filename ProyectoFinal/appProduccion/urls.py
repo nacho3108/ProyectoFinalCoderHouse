@@ -1,11 +1,12 @@
 from django.urls import path
 
 
+
 from appProduccion.views import (
     fabricas, clientes, inicio, formularioCliente, formularioFabrica, busquedaFabrica, buscarFabrica, busquedaHilado, buscarHilado,
     formularioHilado, busquedaCliente, buscarCliente, leerFabricas, leerClientes, eliminoFabrica, editarFabrica, 
     ClienteList, ClienteDetail, ClienteCreate, ClienteUpdate, ClienteDelete, HiladoCreate, HiladoDelete, HiladoDetail, HiladoList, HiladoUpdate,
-    login_request, register
+    login_request, register, editarPerfil
     )
 
 from django.contrib.auth.views import LogoutView
@@ -50,6 +51,6 @@ urlpatterns = [
     path('login/', login_request, name="Login"),
     path('registrar/', register, name="Registrar"),
     path('logout/', LogoutView.as_view(template_name = "appProduccion/logout.html"), name="Logout"),
-
+    path('editarPerfil/', editarPerfil, name="EditarPerfil"),
 
 ]

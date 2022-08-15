@@ -1,13 +1,14 @@
 
 from django.http import HttpResponse
 from django.shortcuts import render
+from .forms import UserEditForm
 
 
 from appProduccion.models import Cliente, Fabrica, Hilado
 from appProduccion.forms import FormularioCliente, FormularioFabrica, FormularioHilado
 from django.views.generic import ListView, DeleteView, CreateView, UpdateView, DetailView
 
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.mixins import LoginRequiredMixin #para vistas basadas en clase (permisos de usuario)
 from django.contrib.auth.decorators import login_required #decorador para visatas basadas en funciones (permisos de usuarios)
@@ -352,3 +353,30 @@ def register(request):
     return render(request, "appProduccion/registro.html", {'miFormulario':form})
 
 
+#---------------Edicion usuario-----------------------
+@login_required #si no esta logueado no puede editar
+def editarPerfil(request):
+
+    usuario = request.user
+
+
+    if request.method == "POST":
+
+        miFormulario = UserEditForm(request.POST, instance = request.user)
+
+        if miFormulario.is_valid():
+            data = miFormulario.cleaned_data
+
+            usuario.first_name = data['first_name']
+            usuario.last_name = data['last_name']
+            usuario.email = data['email']
+
+            usuario.save()
+        
+        
+            return render(request, 'appProduccion/inicio.html', {"mensaje": "Datos actualozados con exito"})
+    
+    else:
+        miFormulario = UserEditForm(instance = request.user)#datos cargados de perfil existente
+
+    return render(request, "appProduccion/editarPerfil.html", {'miFormulario':miFormulario})

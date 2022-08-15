@@ -33,3 +33,5 @@ Para leer Fabricas, eliminar y modificar (CRUD echo con funciones): http://127.0
 Para leer, eliminar y modificar Clientes (CRUD con Clases basadas en vistas): http://127.0.0.1:8000/appProduccion/leerClientes/
 
 Para leer Hilados: http://127.0.0.1:8000/appProduccion/leerHilados/
+
+Falta terminar de configurar el cambio de contraseña
