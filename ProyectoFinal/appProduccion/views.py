@@ -4,7 +4,7 @@ from django.shortcuts import render
 from .forms import UserEditForm
 
 
-from appProduccion.models import Cliente, Fabrica, Hilado
+from appProduccion.models import Avatar, Cliente, Fabrica, Hilado
 from appProduccion.forms import FormularioCliente, FormularioFabrica, FormularioHilado
 from django.views.generic import ListView, DeleteView, CreateView, UpdateView, DetailView
 
@@ -15,8 +15,15 @@ from django.contrib.auth.decorators import login_required #decorador para visata
 from django.contrib.admin.views.decorators import staff_member_required #decorador para no permitir acceso a usuarios menor nivel
 
 # Create your views here.
+@login_required
 def inicio(request):
-    return render(request,"appProduccion/inicio.html")
+    try:
+        avatar = Avatar.objects.get(user = request.user.id)
+        return render(request,"appProduccion/inicio.html",{"url":avatar.imagen.url})
+
+    except:
+        return render(request,"appProduccion/inicio.html")
+    
 
 
 def fabricas(request):
@@ -380,3 +387,5 @@ def editarPerfil(request):
         miFormulario = UserEditForm(instance = request.user)#datos cargados de perfil existente
 
     return render(request, "appProduccion/editarPerfil.html", {'miFormulario':miFormulario})
+
+

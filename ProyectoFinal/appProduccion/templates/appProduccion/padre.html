@@ -30,6 +30,7 @@
 
                 
                 {% if user.is_authenticated %}
+                <img src="{{url}}" height = "35px" alt="avatar">
                     <p>Usuario: {{user.username}}</p>
                     <a class="btn btn-primary" href="{% url 'Logout' %}">Cerrar Sesion</a>
                 {% else %}

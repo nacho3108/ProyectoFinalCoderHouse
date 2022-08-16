@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Fabrica(models.Model):
@@ -45,3 +46,7 @@ class Hilado(models.Model):
         return f"Partida: {self.partida} - Artículo: {self.articulo} - Código Color: {self.codigoColor} - KG: {self.kg} - Conos: {self.cantidadConos} - Fecha Teñido: {self.fechaTenido} - Estado: {self.estado}- Cliente 1: {self.clienteTenido1} - Cliente 2: {self.clienteTenido2} - Cliente 3: {self.clienteTenido3} - Cliente 4: {self.clienteTenido4} - Cliente 5: {self.clienteTenido5} "
 
 
+class Avatar(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE) #apunta a una foreign key (on_delete es para que si elimino al usuario me elimina el avatar asociado al usuario)
+    imagen = models.ImageField(upload_to = 'avatares', blank=True, null=True)
+    
