@@ -51,3 +51,5 @@ class UserEditForm(UserChangeForm): #Usuario eredado de UserChangeForm pero con 
         if (password2!=self.cleaned_data["password1"]):
             raise forms.ValidationError("Las contraseñas no coinciden") #lanzo error 
         return password2 #no hace falta poner un else porque el raise corta
+
+AvatarFormulario

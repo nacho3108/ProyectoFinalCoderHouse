@@ -389,3 +389,25 @@ def editarPerfil(request):
     return render(request, "appProduccion/editarPerfil.html", {'miFormulario':miFormulario})
 
 
+#-------------Agrega AVATAR--------
+def fagregarAvatar(request):
+    if request.method == 'POST':
+
+        miFormulario = AvatarFormulario(request.POST) 
+
+        print(miFormulario)
+
+        if miFormulario.is_valid: #si paso la validación de django
+                informacion = miFormulario.cleaned_data
+ 
+                fabrica = Fabrica (razonSocial=informacion['razonSocial'],cuit=informacion['cuit'],direccion=informacion['direccion'],provincia=informacion['provincia'],codigoPostal=informacion['codigoPostal'])
+
+                fabrica.save()
+
+                return render(request, "appProduccion/inicio.html")
+    
+    else:
+         miFormulario = FormularioFabrica() #Formulario Vacio para construir el html
+
+
+    return render(request,"appProduccion/formularioFabrica.html",{"miFormulario":miFormulario})
