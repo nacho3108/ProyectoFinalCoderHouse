@@ -29,11 +29,12 @@
                 
 
                 
+                
                 {% if user.is_authenticated %}
 
                     {% if url %}
-                        <img src="{{url}}" height = "35px" alt="avatar">
-                    {% end if %}
+                        <img src="{{url}}" height="35px" alt="avatar">
+                    {% endif %}
 
             
                     <p>Usuario: {{user.username}}</p>

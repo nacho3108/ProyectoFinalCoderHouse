@@ -2,6 +2,9 @@
 from django import forms
 from django.contrib.auth.forms import UserChangeForm
 from django.contrib.auth.models import User
+from dataclasses import field
+from pyexpat import model
+from appProduccion.models import Avatar
 
 class FormularioCliente(forms.Form):
     razonSocial = forms.CharField()
@@ -52,4 +55,7 @@ class UserEditForm(UserChangeForm): #Usuario eredado de UserChangeForm pero con 
             raise forms.ValidationError("Las contraseñas no coinciden") #lanzo error 
         return password2 #no hace falta poner un else porque el raise corta
 
-AvatarFormulario
+class AvatarFormulario(forms.ModelForm): #Formulario basado en modelos
+    class Meta:
+        model=Avatar
+        fields=('imagen',)

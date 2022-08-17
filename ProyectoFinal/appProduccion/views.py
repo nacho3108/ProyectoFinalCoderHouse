@@ -1,7 +1,7 @@
 
 from django.http import HttpResponse
 from django.shortcuts import render
-from .forms import UserEditForm
+from .forms import AvatarFormulario, UserEditForm
 
 
 from appProduccion.models import Avatar, Cliente, Fabrica, Hilado
@@ -15,7 +15,7 @@ from django.contrib.auth.decorators import login_required #decorador para visata
 from django.contrib.admin.views.decorators import staff_member_required #decorador para no permitir acceso a usuarios menor nivel
 
 # Create your views here.
-@login_required
+
 def inicio(request):
     try:
         avatar = Avatar.objects.get(user = request.user.id)
@@ -390,24 +390,26 @@ def editarPerfil(request):
 
 
 #-------------Agrega AVATAR--------
-def fagregarAvatar(request):
+def agregarAvatar(request):
     if request.method == 'POST':
 
-        miFormulario = AvatarFormulario(request.POST) 
+        miFormulario = AvatarFormulario(request.POST, request.FILES)  #las imagenes viene en el request.FILES
 
         print(miFormulario)
 
         if miFormulario.is_valid: #si paso la validación de django
-                informacion = miFormulario.cleaned_data
+
+                data = miFormulario.cleaned_data
  
-                fabrica = Fabrica (razonSocial=informacion['razonSocial'],cuit=informacion['cuit'],direccion=informacion['direccion'],provincia=informacion['provincia'],codigoPostal=informacion['codigoPostal'])
+                
+                avatar = Avatar(user=request.user, imagen=data['imagen'])
 
-                fabrica.save()
+                avatar.save()
 
-                return render(request, "appProduccion/inicio.html")
+                return render(request, "appProduccion/inicio.html",{"mensaje": "Avatar cargado correctamente"})
     
     else:
-         miFormulario = FormularioFabrica() #Formulario Vacio para construir el html
+         miFormulario = AvatarFormulario() #Formulario Vacio para construir el html
 
 
-    return render(request,"appProduccion/formularioFabrica.html",{"miFormulario":miFormulario})
+    return render(request,"appProduccion/agregarAvatar.html",{"miFormulario":miFormulario})
