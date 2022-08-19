@@ -135,12 +135,16 @@ def buscarCliente(request):
 
 @login_required
 def leerFabricas(request):
+
+
     fabricas = Fabrica.objects.all() #traigo todas las fábricas
 
     contexto = {"fabricas":fabricas}
 
+    
     return render(request, "appProduccion/leerFabricas.html",contexto)
 
+@login_required
 def leerClientes(request):
     clientes = Cliente.objects.all() 
 
@@ -148,14 +152,14 @@ def leerClientes(request):
 
     return render(request, "appProduccion/leerClientes.html",contexto)
 
-
+@login_required
 def leerHilados(request):
     hilados = Hilado.objects.all() 
 
     contexto = {"hilados":hilados}
 
     return render(request, "appProduccion/leerHilados.html",contexto)
-
+@login_required
 def eliminoFabrica(request, id):
     
     if request.method == 'POST':
@@ -171,7 +175,7 @@ def eliminoFabrica(request, id):
         contexto = {"fabricas":fabricas}
 
         return render(request, "appProduccion/leerFabricas.html",contexto)
-
+@login_required
 def editarFabrica(request, id):
     
     fabrica = Fabrica.objects.get(id=id)
@@ -207,11 +211,11 @@ def editarFabrica(request, id):
 
 
     return render(request,"appProduccion/editarFabrica.html",{"miFormulario":miFormulario, "id":fabrica.id}) #necesito no perder el id
-
+@login_required
 def busquedaFabrica(request):
     return render(request, "appProduccion/busquedaFabrica.html")
 
-
+@login_required
 def buscarFabrica(request):
  
 
@@ -232,7 +236,7 @@ def buscarFabrica(request):
 def busquedaHilado(request):
     return render(request, "appProduccion/busquedaHilado.html")
 
-
+@login_required
 def buscarHilado(request):
  
 
@@ -251,6 +255,7 @@ def buscarHilado(request):
     return HttpResponse(respuesta)
 
 class ClienteList(ListView):
+    
     model = Cliente
     template_name = 'appProduccion/cliente_list.html'
     context_object_name = 'clientes' #recibe como contexto la lista de clientes 
@@ -352,6 +357,7 @@ def register(request):
 
             form.save()
 
+            
             return render(request, 'appProduccion/inicio.html', {"mensaje": f"Usuario {username} creado"} )
     else:
 

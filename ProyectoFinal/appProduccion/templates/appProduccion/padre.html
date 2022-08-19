@@ -32,6 +32,7 @@
                     <a class="navbar-brand" href="{% url 'LeerFabricas' %}">Fabrica</a>
                     <a class="navbar-brand" href="{% url 'ListaHilados' %}">Hilados</a>
                     <a class="navbar-brand" href="{% url 'ListaClientes' %}">Cliente</a>
+                
 
                     {% if url %}
                         <img src="{{url}}" height="35px" alt="avatar">
@@ -39,10 +40,13 @@
 
             
                     <p>Usuario: {{user.username}}</p>
+                    <a class ="btn btn-primary" href="{% url 'AgregarAvatar' %}">Agregar Avatar</a>
                     <a class="btn btn-primary" href="{% url 'Logout' %}">Cerrar Sesion</a>
                 {% else %}
                     <p align="right">
+                        <a class="btn btn-primary" href="{% url 'Registrar' %}">Registrarse</a>
                         <a class ="btn btn-primary" href="{% url 'Login' %}">Iniciar Sesion</a>
+
                     </p>
                 {% endif %}
                     
