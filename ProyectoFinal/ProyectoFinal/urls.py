@@ -23,6 +23,7 @@ from appProduccion.views import inicio, clientes, fabricas, hilados
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('appProduccion/', include('appProduccion.urls')),
+    path('appAboutMe/', include('appAboutMe.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
