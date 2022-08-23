@@ -5,6 +5,6 @@ from appAboutMe.views import aboutMe
 
 
 urlpatterns = [
-    path('', aboutMe, name="Inicio"),
+    path('', aboutMe, name="AboutMe"),
     
 ]

@@ -5,5 +5,4 @@ from django.http import HttpResponse
 
 
 def aboutMe(request):
-    
     return render(request,"appAboutMe/inicio.html")
