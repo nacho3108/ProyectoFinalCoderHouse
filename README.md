@@ -34,4 +34,6 @@ Para leer, eliminar y modificar Clientes (CRUD con Clases basadas en vistas): ht
 
 Para leer Hilados: http://127.0.0.1:8000/appProduccion/leerHilados/
 
+About Me: http://127.0.0.1:8000/appAboutMe/ (hay un acceso en el footer)
+
 Falta terminar de configurar el cambio de contraseña
