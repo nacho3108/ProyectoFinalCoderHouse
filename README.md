@@ -2,7 +2,7 @@
 
 # Profesor: Mauricio Cuello.
 # Tutor: Esteban Acevedo
-# Integrantes del grupo: Julian Carrizo Brenelli, Julian Ottonello y Juan Ignacio Goicoa
+# Integrantes del grupo: Juan Ignacio Goicoa
 
 # Introducción al proyecto
 El proyecto se basa en una fabrica de hilados.
