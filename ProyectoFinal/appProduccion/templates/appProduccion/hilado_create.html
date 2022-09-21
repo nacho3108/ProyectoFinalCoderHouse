@@ -15,10 +15,42 @@
     {% endif %}
 
     <form action="{% url 'CreaHilado' %}" method="POST">{% csrf_token %}
+        
         <table>
-            {{form.as_table}}
-        </table>
+            
+           
+            <p>Partida: {{form.partida}}</p>
+            <p>Artículo: {{form.articulo}}</p>
+            <p>Código Color: {{form.codigoColor}}</p>
+            <p>Kg: {{form.kg}}</p>
+            <p>Cantidad conos: {{form.cantidadConos}}</p>
+            <p>Fecha de Teñido: {{form.fechaTenido}}</p>
+            <p>Estado: {{form.estado}}</p>
+            <p>Cliente 1: {{form.clienteTenido1}}</p>
+            <p>Cliente 2:: {{form.clienteTenido2}}</p>
+            <p>Cliente 3:: {{form.clienteTenido3}}</p>
+            <p>Cliente 4:: {{form.clienteTenido4}}</p>
+            <p>Cliente 5:: {{form.clienteTenido5}}</p>
+            
+            <label for="exampleDataList" class="form-label">Artículo</label>
+            <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
+            <datalist id="datalistOptions">
+              <option value="San Francisco">
+              <option value="New York">
+              <option value="Seattle">
+              <option value="Los Angeles">
+              <option value="Chicago">
+            </datalist>
 
+        </table>
+        
+       
+            
+            
+       
+            
+
+        
         <input type="submit", value="Enviar">
     </form>
 </body>
