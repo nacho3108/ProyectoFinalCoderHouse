@@ -8,6 +8,9 @@
 El proyecto se basa en una fabrica de hilados.
 Se tarata de hacer una plataforma web donde los distintos sectores de la empresa puedan hacer un seguimiento de cualquier pedido asi como también el clieente.
 La plataforma tiene mucho potencial a futuro ya que en futuras mejoras se pueden hacer apps para ventas, cobros, etc, pero nos centramos en esta primer etapa a la producción.
+
+# link al video presentación: https://youtu.be/1DsWd-Yp6j4
+
 #
 La app se llama appProduccion ya que es la app que se encarga de monitorear el estado del pedio del cliente desde que se crea una partida hasta el moento que se encuntra en condiciones de ser entregado.
 
